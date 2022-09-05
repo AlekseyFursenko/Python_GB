@@ -21,24 +21,30 @@
 
 '''Напишите программу для проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат.'''
 
-# combinations = 8 #Колличество возможных комбинаций при трёх преременных 2^3=8
-# true_count = 0 # счётчик истинности утверждения при различных значениях предикат
+combinations = 8 #Колличество возможных комбинаций при трёх преременных 2^3=8
+true_count = 0 # счётчик истинности утверждения при различных значениях предикат
 
-# print('XYZ   ¬(X ⋁ Y ⋁ Z)  =   ¬X ⋀ ¬Y ⋀ ¬Z')
+print(' X  Y  Z   ¬(X ⋁ Y ⋁ Z)  =   ¬X ⋀ ¬Y ⋀ ¬Z')
 
 # for i in range(0,combinations):
 #     num = format(i, '0>3b')
 #     left_part = bool(not((int(num[2]) or int(num[1])) or int(num[0])))
 #     right_part = bool((not(int(num[2])) and not(int(num[1]))) and not(int(num[0])))
-#     result = (bool(left_part == right_part))
-#     print(f'{num}    {left_part}       {result}    {right_part}')
-#     if result == True:
-#         true_count +=1
 
-# if true_count == combinations:
-#     print(f'Statement ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z is True for all values of predicate')
-# else:
-#     print(f'Statement ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z is False')
+for x in [0, 1]:
+    for y in [0, 1]:
+        for z in [0, 1]:
+            left_part = bool(not((x or y) or z))
+            right_part = bool((not(x) and not(y)) and not(z))
+            result = (bool(left_part == right_part))
+            print(f'{x, y, z}    {left_part}       {result}    {right_part}')
+            if result == True:
+                true_count +=1
+                
+if true_count == combinations:
+    print(f'Statement ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z is True for all values of predicate')
+else:
+    print(f'Statement ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z is False')
 
 
 
