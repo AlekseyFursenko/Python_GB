@@ -72,15 +72,15 @@
 #     list.append(randrange(-n, n+1))
 # print(list) 
     
-# print(f"Input indexes of above mentioned lists' elements would you like to multiply (in range 0 to {n - 1})")
+# print(f"Input positions of above mentioned lists' elements would you like to multiply (in range 1 to {n})")
 # print('Use space bar for divide indexes')
-# indexes = input()
+# pos = input()
 
-# list_idexes = indexes.split(' ')
-# mult_elements = list[int(list_idexes[0])]
+# list_pos = pos.split(' ')
+# mult_elements = list[int(list_pos[0]) - 1]
 
-# for i in range(1, len(list_idexes)):
-#     mult_elements *= list[int(list_idexes[i])]
+# for i in range(1, len(list_pos)):
+#     mult_elements *= list[int(list_pos[i]) - 1]
     
 # print(mult_elements)    
 
